@@ -1,0 +1,80 @@
+@startuml
+class Prenda{
+tipo
+estadoPrenda
+precioPropio
+precioFinal()
+}
+
+interface Estado{
+afectarPrecio(precio)
+}
+
+class EstadoNuevo{
+afectarPrecio(precio)
+}
+
+class EstadoPromocion{
+@startuml
+class Prenda{
+tipo
+estadoPrenda
+precioPropio
+precioFinal()
+}
+
+interface Estado{
+afectarPrecio(precio)
+}
+
+class EstadoNuevo{
+afectarPrecio(precio)
+}
+
+class EstadoPromocion{
+valorPromocion
+afectarPrecio(precio)
+}
+
+class EstadoLiquidacion{
+afectarPrecio(precio)
+}
+
+Prenda --> Estado
+Estado <|.. EstadoNuevo
+Estado <|.. EstadoPromocion
+Estado <|.. EstadoLiquidacion
+
+abstract class Venta{
+prendasVendidas
+cantidadPrendas
+fecha
+precioVenta()
+esDelDia(fecha)
+}
+
+class VentaEfectivo{
+precioVenta()
+}
+
+class VentaTarjeta{
+coeficienteFijo
+cantidadCuotas
+valorRecargo()
+precioVenta()
+}
+
+Venta <|-- VentaEfectivo
+Venta <|-- VentaTarjeta
+
+Prenda <-- Venta
+
+class Macowins {
+prendas
+ventas
+gananciasDelDia(fecha)
+}
+
+Macowins -> Prenda
+Macowins -> Venta
+@enduml

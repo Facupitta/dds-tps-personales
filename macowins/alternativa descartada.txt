@@ -1,0 +1,1 @@
+Al principio iba a hacer que cada tipo de prenda (saco, pantalon y camisa) sea una subclase de Prenda, pero al darme cuenta que en el valor final de la prenda no depende del tipo de prenda, ni tienen comportamiento propio de cada tipo, simplifiqué y directamente guarde una variable de tipo string con el tipo.
