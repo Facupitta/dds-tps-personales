@@ -1,0 +1,42 @@
+en Prenda:
+Prenda(tipoPrenda, material, colorPrincipal)
+{
+	this.tipoPrenda = tipoPrenda
+	this.material = material
+	this.colorPrincipal = colorPrincipal
+	this.colorSecundario = null
+}
+
+Prenda(tipoPrenda, material, colorPrincipal, colorSecundario)
+{
+	this.tipoPrenda = tipoPrenda
+	this.material = material
+	this.colorPrincipal = colorPrincipal
+	this.colorSecundario = colorSecundario
+}
+
+categoria()
+{
+	return tipoPrenda.categoria()
+}
+
+
+
+en Usuario:
+cargarPrenda(tipo, material, color)
+{
+	nuevaPrenda = new Prenda(tipo, material, color)
+	guardarropas.agregarPrenda(nuevaPrenda)
+}
+
+cargarPrenda(tipo, material, color, color2)
+{
+	nuevaPrenda = new Prenda(tipo, material, color, color2)
+	guardarropas.agregarPrenda(nuevaPrenda)
+}
+
+categoriaDe(unaPrenda)
+{
+	return unaPrenda.categoria()
+}
+
