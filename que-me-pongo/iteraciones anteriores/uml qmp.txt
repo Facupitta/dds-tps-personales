@@ -1,0 +1,42 @@
+@startuml
+class Usuario {
+guardarropas
+cargarPrenda(tipo, material, color)
+cargarPrenda(tipo, material, color, color2)
+categoriaDe(unaPrenda)
+}
+
+Usuario ..> Prenda
+Usuario --> Guardarropas
+Guardarropas -->"*" Prenda
+
+class Guardarropas {
+prendas
+agregarPrenda(unaPrenda)
+}
+
+class Prenda {
+tipoPrenda
+material
+colorPrincipal
+colorSecundario
+
+categoria()
+}
+
+Prenda --> Tipo
+
+interface Tipo {
+categoria()
+}
+
+class CamisaMangaCorta
+class Pantalon
+class Short
+class Zapatos
+
+Tipo <|.. CamisaMangaCorta
+Tipo <|.. Pantalon
+Tipo <|.. Short
+Tipo <|.. Zapatos
+@enduml

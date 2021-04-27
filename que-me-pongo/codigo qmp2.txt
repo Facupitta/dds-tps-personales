@@ -1,0 +1,80 @@
+en Prenda:
+Prenda(tipoPrenda) {
+	this.tipoPrenda = tipoPrenda
+	this.trama = Trama.LISA
+}
+
+esValida() {
+	return !self.leFaltanCampos()
+}
+
+leFaltanCampos() {
+	return tipo == null || material == null || trama == null || colorPrincipal == null
+}
+
+categoria() {
+	Map categoriasDeTipos = new Map
+	categoriasDeTipos.put(Tipo.CAMISA_MANGA_CORTA, PARTE_SUPERIOR)
+	categoriasDeTipos.put(Tipo.PANTALON, PARTE_INFERIOR)
+	categoriasDeTipos.put(Tipo.ZAPATOS, CALZADO)
+
+	return categoriasDeTipo.get(tipoPrenda)
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+en Usuario:
+crearPrenda(tipo) {
+	self.ultimaPrenda = new Prenda(tipo)
+}
+
+seguirPrenda(material, color1) {
+	ultimaPrenda.material(material)
+	ultimaPrenda.colorPrincipal(color1)
+}
+
+seguirPrenda(material, color1, color2) {
+	ultimaPrenda.material(material)
+	ultimaPrenda.colorPrincipal(color1)
+	ultimaPrenda.colorSecundario(color2)
+}
+
+seguirPrenda(material, trama, color1) {
+	ultimaPrenda.material(material)
+	ultimaPrenda.trama(trama)
+	ultimaPrenda.colorPrincipal(color1)
+}
+
+seguirPrenda(material, trama, color1, color2) {
+	ultimaPrenda.material(material)
+	ultimaPrenda.trama(trama)
+	ultimaPrenda.colorPrincipal(color1)
+	ultimaPrenda.colorSecundario(color2)
+}
+
+cargarUltimaPrenda(prenda)
+{
+	if (ultimaPrenda.esValida() && ultimaPrenda != null) {
+		misPrendas.add(ultimaPrenda)
+		ultimaPrenda = null
+	}
+	else {
+		throw new PrendaInvalidaException()
+	}
+}
+
+categoriaDe(unaPrenda)
+{
+	return unaPrenda.categoria()
+}
+

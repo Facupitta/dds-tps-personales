@@ -1,0 +1,49 @@
+@startuml
+class Usuario {
+ultimaPrenda
+misPrendas
+guardarropas
+
+crearPrenda(tipo)
+cargarUltimaPrenda()
+categoriaDe(unaPrenda)
+}
+
+Usuario --> Prenda
+
+enum Categoria {
+PARTE_SUPERIOR,
+PARTE_INFERIOR,
+CALZADO,
+ACCESORIO
+}
+
+enum Trama {
+LISA,
+RAYADA,
+LUNARES,
+CUADROS,
+ESTAMPADO
+}
+
+class Prenda {
+tipoPrenda
+material
+trama
+colorPrincipal
+colorSecundario
+
+categoria()
+}
+
+
+Prenda ..> Categoria
+Prenda --> Trama
+Prenda --> Tipo
+
+enum Tipo {
+CAMISA_MANGA_CORTA,
+PANTALON,
+ZAPATOS
+}
+@enduml
