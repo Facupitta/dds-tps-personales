@@ -1,0 +1,76 @@
+@startuml
+class Sistema {
+usuariosAdministradores
+personas
+mascotasEncontradas
+caracteristicasSeleccionables
+
+agregarMascotaEncontrada()
+mascotasEncontradasUltimos10Dias()
+}
+
+Sistema -->"*" Persona
+Sistema -->"*" UsuarioAdministrador
+
+class UsuarioAdministrador {
+usuario
+password
+administradorAsociado
+}
+
+UsuarioAdministrador --> Administrador
+
+class Persona {
+nombre
+apellido
+fechaNacimiento
+tipoDocumento
+nroDocumento
+mascotas
+contactos
+
+registrarMascota()
+informarMascotaPerdida()
+}
+
+class Administrador {
+agregarCaracteristica(caracteristica)
+}
+
+Persona <|-- Administrador
+
+Persona -->"*" Contacto
+Persona -->"*" Mascota
+
+
+class Contacto {
+nombre
+apellido
+telefono
+email
+}
+
+class Mascota {
+especie
+nombre
+apodo
+edadAproximada
+sexo
+descripcionFisica
+fotos
+caracteristicas
+}
+
+Mascota --> Especie
+Mascota --> Sexo
+
+enum Especie {
+GATO,
+PERRO
+}
+
+enum Sexo {
+MASCULINO,
+FEMENINO
+}
+@enduml
